@@ -3,17 +3,13 @@ clc
 clear all
 
 clf
-
 data = readtable('ADA5m.csv');
 data = data{:,:};
 data_range = 8000;
 
 data = data(1:data_range,:);
-
 cc = data(1:data_range,5);
-
 dim = size(cc);
-
 dim = dim(1);
 
 t = data(:,1);
