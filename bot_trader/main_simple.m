@@ -1,5 +1,7 @@
 clc
+
 clear all
+
 clf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% data preparation
 c = load('ada5.txt');
