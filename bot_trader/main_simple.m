@@ -5,8 +5,10 @@ clear all
 clf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% data preparation
 c = load('ada5.txt');
+
 % asset: ada-usdt -> base=ada, quote=usdt
 dr = 200; % dr: data range
+
 c = c(1:dr,:); % c: candle
 cc = c(1:dr,4); % cc: candle close
 co = c(1:dr,1); % cc: candle close
