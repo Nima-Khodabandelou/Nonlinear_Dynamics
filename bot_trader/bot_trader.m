@@ -1,11 +1,18 @@
 clc
+
+
 clear all
+
 clf
+
 data = load('adausdt.txt');
+
 % data = data{:,:};
 
 data_range = 8000;
+
 data = data(1:data_range,:);
+
 cc = data(1:data_range,5);
 
 dim = size(cc);
