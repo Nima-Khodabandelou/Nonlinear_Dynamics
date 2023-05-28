@@ -5,6 +5,7 @@ clear all
 clf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% data preparation
 c = load('ada5.txt');
+
 % asset: ada-usdt -> base=ada, quote=usdt
 dr = 200; % dr: data range
 
@@ -27,6 +28,7 @@ nd = size(cc); % nd: No. of data
 nd = nd(1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% intial data
 cap = 1000; % $
+
 
 lev = 2; % leverage: for Long -> no lev and for short -> lev = 2
 
@@ -59,9 +61,14 @@ m(m(:)==0) = nonzero_m(1);
 %max_point = max(max(c(:,1:4)));
 
 %min_point = min(min(c(:,1:4)));
+
+
+
 % vert_line_x = [mp, mp];
+
 % vert_line_y = [min_point, max_point];
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% initial calculation
+
 % mode = -1 for short and mode = 1 for long
 state = zeros(2,4);
 if cc(indx) >= m(indx)
@@ -75,6 +82,7 @@ else
     state (1,:) = [mode, indx, cc(indx), sb];
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% cand plot
+
 
 plot_data = c(1:dr, 1:4);
 %       HighPrices,      LowPrices,     ClosePrices,    OpenPrices
