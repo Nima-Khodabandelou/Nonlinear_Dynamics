@@ -5,19 +5,16 @@ clear all
 clf
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% data preparation
 c = load('ada5.txt');
-
-
 % asset: ada-usdt -> base=ada, quote=usdt
-
 dr = 200; % dr: data range
 
 c = c(1:dr,:); % c: candle
-
 
 cc = c(1:dr,4); % cc: candle close
 
 
 co = c(1:dr,1); % cc: candle close
+
 
 
 ch = c(1:dr,2); % cc: candle close
@@ -36,10 +33,13 @@ lev = 2; % leverage: for Long -> no lev and for short -> lev = 2
 mp = 8; % mp: moving average period
 atr_p = 5; % ATR period
 
+
 indx = mp + 1; % indx: index of the first cand to start trd
+
 
 bb = cap; % bb: buy balance in base asset
 margin = 0.3; % 30% margin is considered
+
 
 sb = (1-margin)*lev*(cap/cc(indx)); % sb: sell balance in quote asset
 
@@ -52,10 +52,12 @@ for i=mp+1:nd;
     m(i) = ma;    
 end
 %%% setting initial moving average data (data prior to mp) to constant
+
 nonzero_m = m(m(:)~=0);
 m(m(:)==0) = nonzero_m(1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %max_point = max(max(c(:,1:4)));
+
 %min_point = min(min(c(:,1:4)));
 % vert_line_x = [mp, mp];
 % vert_line_y = [min_point, max_point];
@@ -73,6 +75,7 @@ else
     state (1,:) = [mode, indx, cc(indx), sb];
 end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% cand plot
+
 plot_data = c(1:dr, 1:4);
 %       HighPrices,      LowPrices,     ClosePrices,    OpenPrices
 candle(plot_data(:,2), plot_data(:,3), plot_data(:,4), plot_data(:,1));
