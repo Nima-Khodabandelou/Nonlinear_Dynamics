@@ -26,16 +26,23 @@ ch = c(1:dr,2); % cc: candle close
 cl = c(1:dr,3); % cc: candle close
 
 nd = size(cc); % nd: No. of data
+
 nd = nd(1);
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% intial data
 cap = 1000; % $
+
 lev = 2; % leverage: for Long -> no lev and for short -> lev = 2
+
 mp = 8; % mp: moving average period
 atr_p = 5; % ATR period
+
 indx = mp + 1; % indx: index of the first cand to start trd
+
 bb = cap; % bb: buy balance in base asset
 margin = 0.3; % 30% margin is considered
+
 sb = (1-margin)*lev*(cap/cc(indx)); % sb: sell balance in quote asset
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% m: moving average
 m = zeros(nd, size(mp,2));
 for i=mp+1:nd;
