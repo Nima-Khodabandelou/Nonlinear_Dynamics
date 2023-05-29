@@ -12,31 +12,40 @@ coeffs=[0 32 0 -3 0 0 0];
 f=1;
 
 a1=coeffs(1,1);
+
 a2=coeffs(1,2);
+
 a3=coeffs(1,3);
+
 a4=coeffs(1,4);
+
 a5=coeffs(1,5);
 
 a6=coeffs(1,6);
+
 a7=coeffs(1,7);
 
 omega0=sqrt(a2);
 qmax=0.1;
 
 tmax=200;
+
 %  qddot = -a(1)*qdot - a(2)*q - a(3)*q^2 - a(4)*q^3 -a(5)  
 %  x1=q   
 %  x2=qdot
 zigma=0;
 
 period=2*pi/omega0;
+
 omega=sqrt(a2);
 
 cf = -[a1 a2 a3 a4 a5 a6 a7];
+
 %defining x1=w, we have:
 %d/dt(x1)=x2
 %d/dt(x2)=x3
 f1=@(t,x1,x2,x3,x4,x5,x6) x2;
+
 f2=@(t,x1,x2,x3,x4,x5,x6) -a2*x1-a4*x1^3+f*cos(omega*t);
 f3=@(t,x1,x2,x3,x4,x5,x6) x5;
 f4=@(t,x1,x2,x3,x4,x5,x6) x6;
