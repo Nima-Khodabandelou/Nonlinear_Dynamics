@@ -1,25 +1,18 @@
 clc
 
-
 clear all
 
 clf
-
 data = load('adausdt.txt');
 
 % data = data{:,:};
-
 data_range = 8000;
-
 data = data(1:data_range,:);
-
 cc = data(1:data_range,5);
-
 dim = size(cc);
 dim = dim(1);
 
 t = data(:,1);
-
 ma_p = [5, 30, 30, 30];
 ma_vec = zeros(dim, size(ma_p,2));
 
@@ -40,7 +33,6 @@ for j=1:size(ma_p,2);
         end        
     end
 end
-
 nonzero_ma1 = ma1(ma1(:)~=0);
 ma1(ma1(:)==0) = nonzero_ma1(1);
 
